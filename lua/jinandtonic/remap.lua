@@ -18,3 +18,6 @@ vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Focus on the up windows" })
 -- split windows
 vim.keymap.set("n", "<C-->", "<cmd>split<CR>", { desc = "Horizontal split windows" })
 vim.keymap.set("n", "<C-\\>", "<cmd>vsplit<CR>", { desc = "Vertical split windows" })
+
+-- Tree open and close
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })
