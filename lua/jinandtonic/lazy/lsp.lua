@@ -35,6 +35,7 @@ return {
                 "rust_analyzer",
                 "gopls",
                 "pyright",
+                "texlab",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

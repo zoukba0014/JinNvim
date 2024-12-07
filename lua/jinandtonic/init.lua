@@ -59,3 +59,11 @@ autocmd('LspAttach', {
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+-- change the cursor when in the insert mode
+vim.opt.guicursor = {
+    "n-v-c-sm:block", -- Normal, Visual, Command mode: block cursor
+    "i-ci-ve:ver25",  -- Insert, Command-line insert, Visual replace: vertical bar (thinner)
+    "r-cr:hor20",     -- Replace mode: horizontal bar
+    "o:hor50",        -- Operator-pending mode: horizontal bar
+}
