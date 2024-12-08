@@ -5,6 +5,7 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
+        "jose-elias-alvarez/null-ls.nvim",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
@@ -44,6 +45,14 @@ return {
                     }
                 end,
 
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup({
+                        on_attach = function(client, _)
+                            client.server_capabilities.documentFormattingProvider = false
+                        end,
+                    })
+                end,
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -60,6 +69,15 @@ return {
                 end,
             }
         })
+
+        -- null-ls
+        local null_ls = require("null-ls")
+        null_ls.setup({
+            sources = {
+                null_ls.builtins.formatting.black,
+            },
+        })
+
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 

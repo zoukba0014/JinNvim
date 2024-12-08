@@ -46,11 +46,15 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gs", function() vim.lsp.buf.signature_help() end, opts)
         vim.api.nvim_create_autocmd("BufWritePre", {
-            -- 3
             buffer = e.buf,
             callback = function()
-                -- 4 + 5
-                vim.lsp.buf.format { async = false, id = e.data.client_id }
+                -- 如果是 Python 文件，直接格式化（基于 pattern）
+                if vim.bo[e.buf].filetype == "python" then
+                    vim.lsp.buf.format({ async = false })
+                    -- 如果有特定的 client_id，使用它格式化（基于 buffer）
+                elseif e.data and e.data.client_id then
+                    vim.lsp.buf.format({ async = false, id = e.data.client_id })
+                end
             end,
         })
     end
