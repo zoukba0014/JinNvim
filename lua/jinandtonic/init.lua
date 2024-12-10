@@ -3,7 +3,6 @@ require("jinandtonic.remap")
 require("jinandtonic.lazy_init")
 
 
-
 local augroup = vim.api.nvim_create_augroup
 local JinAndTonic = augroup('JinAndTonic', {})
 
@@ -26,7 +25,6 @@ autocmd({ "BufWritePre" }, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
-
 autocmd('BufEnter', {
     group = JinAndTonic,
     callback = function()
