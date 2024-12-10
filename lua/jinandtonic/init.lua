@@ -45,6 +45,7 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "go", function() vim.lsp.buf.type_definition() end, opts)
         vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gs", function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set("n", "gE", function() vim.diagnostic.open_float() end, opts)
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = e.buf,
             callback = function()
