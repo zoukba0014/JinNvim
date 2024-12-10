@@ -6,8 +6,7 @@ return {
         require('toggleterm').setup {
             direction = 'float', -- 'vertical' | 'horizontal' | 'window' | 'float',
             shade_terminals = true,
-            start_in_insert = true,
-            insert_mappings = true,
+            start_in_insert = false,
             colors = {
                 terminal_background = vim.api.nvim_get_hl_by_name("Normal", true).background,
             },
