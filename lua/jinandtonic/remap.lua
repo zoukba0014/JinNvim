@@ -14,7 +14,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Focus on the right windows" })
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Focus on the left windows" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Focus on the down windows" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Focus on the up windows" })
-
 -- split windows
 vim.keymap.set("n", "<C-->", "<cmd>split<CR>", { desc = "Horizontal split windows" })
 vim.keymap.set("n", "<C-\\>", "<cmd>vsplit<CR>", { desc = "Vertical split windows" })
