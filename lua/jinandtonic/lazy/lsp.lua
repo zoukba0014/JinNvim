@@ -71,6 +71,9 @@ return {
                     local lspconfig = require("lspconfig")
                     lspconfig.rust_analyzer.setup({
                         capabilities = capabilities,
+                        on_attach = function(client, bufnr)
+                            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                        end,
                         settings = {
                             ['rust-analyzer'] = {
                                 checkOnSave = {
@@ -81,6 +84,11 @@ return {
                                 },
                                 cargo = {
                                     loadOutDirsFromCheck = true
+                                },
+                                inlayHints = {
+                                    enable = true,
+                                    showParameterNames = true,
+                                    parameterHintsPrefix = "<- ",
                                 },
                             }
                         }
