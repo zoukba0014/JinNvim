@@ -6,7 +6,7 @@ return {
         init = function()
             -- VimTeX configuration goes here, e.g.
             -- Usign skim to be the pdf viewer
-            vim.g.vimtex_view_method = "skim"
+            vim.g.vimtex_view_method = "zathura"
         end
     }
 }

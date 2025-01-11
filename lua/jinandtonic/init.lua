@@ -25,12 +25,15 @@ autocmd({ "BufWritePre" }, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
+
 autocmd('BufEnter', {
     group = JinAndTonic,
     callback = function()
         vim.cmd.colorscheme("gruvbox")
+        -- vim.cmd.colorscheme("catppuccin-mocha")
     end
 })
+
 
 autocmd('LspAttach', {
     group = JinAndTonic,
@@ -47,10 +50,8 @@ autocmd('LspAttach', {
         vim.api.nvim_create_autocmd("BufWritePre", {
             buffer = e.buf,
             callback = function()
-                -- 如果是 Python 文件，直接格式化（基于 pattern）
                 if vim.bo[e.buf].filetype == "python" then
                     vim.lsp.buf.format({ async = false })
-                    -- 如果有特定的 client_id，使用它格式化（基于 buffer）
                 elseif e.data and e.data.client_id then
                     vim.lsp.buf.format({ async = false, id = e.data.client_id })
                 end

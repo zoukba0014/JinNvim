@@ -67,6 +67,25 @@ return {
                         }
                     }
                 end,
+                ["rust_analyzer"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.rust_analyzer.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            ['rust-analyzer'] = {
+                                checkOnSave = {
+                                    command = "check"
+                                },
+                                procMacro = {
+                                    enable = true
+                                },
+                                cargo = {
+                                    loadOutDirsFromCheck = true
+                                },
+                            }
+                        }
+                    })
+                end,
             }
         })
 
