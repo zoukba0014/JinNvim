@@ -33,7 +33,7 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "rust_analyzer",
+                -- "rust_analyzer",
                 "gopls",
                 "pyright",
                 "texlab",
@@ -68,32 +68,35 @@ return {
                     }
                 end,
                 ["rust_analyzer"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.rust_analyzer.setup({
-                        capabilities = capabilities,
-                        on_attach = function(client, bufnr)
-                            vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                        end,
-                        settings = {
-                            ['rust-analyzer'] = {
-                                checkOnSave = {
-                                    command = "check"
-                                },
-                                procMacro = {
-                                    enable = true
-                                },
-                                cargo = {
-                                    loadOutDirsFromCheck = true
-                                },
-                                inlayHints = {
-                                    enable = true,
-                                    showParameterNames = true,
-                                    parameterHintsPrefix = "<- ",
-                                },
-                            }
-                        }
-                    })
+                    return true
                 end,
+                -- ["rust_analyzer"] = function()
+                --     local lspconfig = require("lspconfig")
+                --     lspconfig.rust_analyzer.setup({
+                --         capabilities = capabilities,
+                --         on_attach = function(client, bufnr)
+                --             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                --         end,
+                --         settings = {
+                --             ['rust-analyzer'] = {
+                --                 checkOnSave = {
+                --                     command = "check"
+                --                 },
+                --                 procMacro = {
+                --                     enable = true
+                --                 },
+                --                 cargo = {
+                --                     loadOutDirsFromCheck = true
+                --                 },
+                --                 inlayHints = {
+                --                     enable = true,
+                --                     showParameterNames = true,
+                --                     parameterHintsPrefix = "<- ",
+                --                 },
+                --             }
+                --         }
+                --     })
+                -- end,
             }
         })
 
