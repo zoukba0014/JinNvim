@@ -80,3 +80,9 @@ vim.opt.guicursor = {
     "r-cr:hor20",     -- Replace mode: horizontal bar
     "o:hor50",        -- Operator-pending mode: horizontal bar
 }
+
+-- vim.api.nvim_set_hl(0, "CopilotSuggestion", {
+--     fg = "#83a598",
+--     -- italic = true -- 不用 gui=italic，直接用 italic = true
+-- })
+--
