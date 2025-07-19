@@ -4,6 +4,7 @@
 + install neovim
 ```bash
 brew install neovim
+
 ```
 + install jinNvim
 ```bash
