@@ -9,7 +9,7 @@ return {
                 settings = {
                     ['rust-analyzer'] = {
                         checkOnSave = {
-                            command = "check"
+                            enable = true
                         },
                         procMacro = {
                             enable = true
