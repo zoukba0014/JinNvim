@@ -34,7 +34,7 @@ return {
             ensure_installed = {
                 "lua_ls",
                 -- "rust_analyzer",
-                "gopls",
+                -- "gopls",
                 "pyright",
                 "texlab",
             },
@@ -67,9 +67,9 @@ return {
                         }
                     }
                 end,
-                ["rust_analyzer"] = function()
-                    return true
-                end,
+                -- ["rust_analyzer"] = function()
+                --     return true
+                -- end,
                 -- ["rust_analyzer"] = function()
                 --     local lspconfig = require("lspconfig")
                 --     lspconfig.rust_analyzer.setup({
