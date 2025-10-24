@@ -60,7 +60,8 @@ autocmd('LspAttach', {
             buffer = e.buf,
             callback = function()
                 if vim.bo[e.buf].filetype == "python" then
-                    vim.lsp.buf.format({ async = false })
+                    -- 调用 Conform 而不是 LSP 格式化
+                    require("conform").format({ bufnr = e.buf, async = false, lsp_fallback = false })
                 elseif e.data and e.data.client_id then
                     vim.lsp.buf.format({ async = false, id = e.data.client_id })
                 end
