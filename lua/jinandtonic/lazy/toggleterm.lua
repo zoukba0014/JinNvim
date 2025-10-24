@@ -12,6 +12,6 @@ return {
             },
         }
         vim.api.nvim_set_keymap('n', '<C-t>t', ':ToggleTerm<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('t', '<C-t>\\', [[<C-\><C-n>]], { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('t', 'jk', [[<C-\><C-n>]], { noremap = true, silent = true })
     end,
 }
